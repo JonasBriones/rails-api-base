@@ -3,6 +3,7 @@
 plugins:
   - rubocop-rails
   - rubocop-factory_bot
+  - rubocop-rake
 
 AllCops:
   NewCops: enable
