@@ -26,6 +26,7 @@ group :development, :test do
   gem 'rubocop', '~> 1.56', require: false
   gem 'rubocop-rails', '~> 2.21', require: false
   gem 'rubocop-rspec', '~> 2.25', require: false
+  gem 'rubocop-rake', require: false
 
   # Reportes de pruebas
   gem 'rspec_junit_formatter', '~> 0.6', require: false
