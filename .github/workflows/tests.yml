@@ -24,8 +24,15 @@ jobs:
           with:
             ruby-version: '3.4.5' # ¡IMPORTANTE! Usa la misma versión de Ruby que tu proyecto.
             bundler-cache: true
+
         - name: Set up test database
           run: |
             bin/rails db:create
             bin/rails db:schema:load
+
+        - name: Run RSpec tests
+          run: bundle exec rspec
+
+        - name: Run RuboCop Linter
+          run: bundle exec rubocop  
 
