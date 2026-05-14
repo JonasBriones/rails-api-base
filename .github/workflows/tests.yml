@@ -19,3 +19,13 @@ jobs:
         - name: Revisión de código
           uses: actions/checkout@v3
 
+        - name: Set up Ruby
+          uses: ruby/setup-ruby@v1
+          with:
+            ruby-version: '3.4.5' # ¡IMPORTANTE! Usa la misma versión de Ruby que tu proyecto.
+            bundler-cache: true
+        - name: Set up test database
+          run: |
+            bin/rails db:create
+            bin/rails db:schema:load
+
