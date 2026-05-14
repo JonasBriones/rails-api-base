@@ -1,0 +1,25 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("DATABASE_HOST") { 'localhost' } %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
+development:
+  <<: *default
+  adapter: sqlite3 # Sobrescribimos para usar SQLite
+  database: storage/development.sqlite3
+
+test:
+  <<: *default
+  adapter: sqlite3 # Y también en el entorno de pruebas
+  database: storage/test.sqlite3
+
+qa:
+  <<: *default
+  database: mi_api_base_qa
+
+production:
+  <<: *default
+  database: mi_api_base_production

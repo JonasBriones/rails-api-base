@@ -1,0 +1,12 @@
+# .rubocop.yml
+
+plugins: rubocop-rails
+
+AllCops:
+  TargetRailsVersion: 7.2
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
