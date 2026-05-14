@@ -7,21 +7,20 @@ RSpec.describe 'Creation and manage Users', type: :request do
     context 'cuando la petición es válida (parámetros correctos)' do
       let(:valid_attributes) do
         attributes_for(:user).merge({
-          password: 'password123',
-          password_confirmation: 'password123'
-        })
+                                      password: 'password123',
+                                      password_confirmation: 'password123'
+                                    })
       end
 
       it 'crea un nuevo usuario' do
         post '/api/v1/users', params: { user: valid_attributes }
-        
+
         unless response.status == 201
           # Esta línea es oro: imprimirá los errores JSON si la prueba falla.
-          puts "Falló la creación del usuario. Errores: #{response.body}" 
+          puts "Falló la creación del usuario. Errores: #{response.body}"
         end
         expect(response).to have_http_status(201)
         expect(json['email']).to eq(valid_attributes[:email])
-
       end
     end
   end
@@ -60,7 +59,7 @@ RSpec.describe 'Creation and manage Users', type: :request do
         expect(json['id']).to eq(user_id)
         expect(json['email']).to eq(user.email)
       end
-      
+
       it 'no devuelve el password_digest' do
         expect(response).to have_http_status(200)
         expect(json['password_digest']).to be_nil
@@ -73,23 +72,23 @@ RSpec.describe 'Creation and manage Users', type: :request do
       it 'devuelve un código de estado 404' do
         expect(response).to have_http_status(404)
       end
-      
+
       it 'devuelve un mensaje de error' do
         expect(json['error']).to eq('User not found')
       end
     end
   end
 
-  #Borramos el usuario
-  describe 'PUT /api/v1/users/:id' do 
-    context 'editamos el nombre del usuario y validamos que es correcto el cambio' do 
+  # Borramos el usuario
+  describe 'PUT /api/v1/users/:id' do
+    context 'editamos el nombre del usuario y validamos que es correcto el cambio' do
       before { get "/api/v1/users/#{user_id}", headers: headers }
     end
   end
 
-  #Borramos el usuario
-  describe 'DELETE /api/v1/users/:id' do 
-    context 'borramos un usuario existente' do 
+  # Borramos el usuario
+  describe 'DELETE /api/v1/users/:id' do
+    context 'borramos un usuario existente' do
       before { get "/api/v1/users/#{user_id}", headers: headers }
       it 'devuelve ok s'
     end

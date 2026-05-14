@@ -5,8 +5,6 @@ module HealthCheck
     def self.call
       checks = {
         environment: check_environment,
-        # database: check_database,
-        # database_metrics: database_metrics,
         time: check_time
       }
 

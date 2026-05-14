@@ -4,7 +4,7 @@ module Api
   module V1
     class UsersController < ApplicationController
       before_action :authorize_request, except: :create
-      before_action :set_user, only: [:show, :update, :destroy]
+      before_action :set_user, only: %i[show update destroy]
       def index
         @users = User.all
         render json: @users, except: [:password_digest], status: :ok
@@ -14,12 +14,9 @@ module Api
         render json: @user, except: [:password_digest], status: :ok
       end
 
-      def update
+      def update; end
 
-      end
-
-      def destroy
-      end
+      def destroy; end
 
       def create
         @user = User.new(user_params)
@@ -42,7 +39,6 @@ module Api
       rescue ActiveRecord::RecordNotFound
         render json: { error: 'User not found' }, status: :not_found
       end
-
     end
   end
 end
