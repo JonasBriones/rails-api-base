@@ -4,16 +4,14 @@ module Api
   module V1
     class AuthController < ApplicationController
       def login
-        user = User.find_by(email: params[:email])
-        if user&.authenticate(params[:password])
-          token = JsonWebToken.encode(user_id: user.id)
-          time = Time.zone.now + 24.hours.to_i
-          render json: {
-            token: token, user: user.as_json(only: %i[id email
-                                                      created_at]), exp: time.strftime('%m-%d-%Y %H:%M')
-          }, status: :ok
+        # 1. Delegamos TODO el trabajo pesado al servicio
+        result = AuthenticationService.login(params[:email], params[:password])
+
+        # 2. El controlador solo se preocupa de renderizar basado en el resultado
+        if result[:success]
+          render json: result[:payload], status: :ok
         else
-          render json: { error: 'unauthorized' }, status: :unauthorized
+          render json: { error: result[:error] }, status: :unauthorized
         end
       end
     end

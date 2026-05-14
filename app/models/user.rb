@@ -4,6 +4,9 @@ class User < ApplicationRecord
   has_secure_password
 
   validates :fullName, presence: true
+
+  # rubocop:disable Rails/UniqueValidationWithoutIndex
   validates :dni, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  # rubocop:enable Rails/UniqueValidationWithoutIndex
 end
