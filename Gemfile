@@ -23,10 +23,10 @@ group :development, :test do
 
   # Linters y seguridad
   gem 'brakeman', '~> 6.0', require: false
-  gem 'rubocop', '~> 1.56', require: false
-  gem 'rubocop-rails', '~> 2.21', require: false
-  gem 'rubocop-rake', require: false
-  gem 'rubocop-rspec', '~> 2.25', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 
   # Reportes de pruebas
   gem 'rspec_junit_formatter', '~> 0.6', require: false

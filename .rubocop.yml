@@ -1,31 +1,9 @@
-# .rubocop.yml
-
-require:
-  - rubocop-rspec
-  - rubocop-factory_bot
-  - rubocop-rake
-
 plugins:
   - rubocop-rails
 
 AllCops:
-  NewCops: enable
+  TargetRailsVersion: 8.0
   SuggestExtensions: false
-  Exclude:
-    - 'db/schema.rb'
-    - 'bin/*'
-    - 'config/initializers/*'
 
-# Deshabilitar documentación si no quieres que te pida comentarios de clases/módulos
 Style/Documentation:
   Enabled: false
-
-# Forzar comillas simples
-Style/StringLiterals:
-  EnforcedStyle: single_quotes
-
-# Puedes añadir configuraciones específicas para las extensiones si lo deseas
-# RSpec/FilePath:
-#   Enabled: true
-# RSpec/Factories/FactoryNames:
-#   Enabled: true
