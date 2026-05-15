@@ -25,8 +25,8 @@ group :development, :test do
   gem 'brakeman', '~> 6.0', require: false
   gem 'rubocop', '~> 1.56', require: false
   gem 'rubocop-rails', '~> 2.21', require: false
-  gem 'rubocop-rspec', '~> 2.25', require: false
   gem 'rubocop-rake', require: false
+  gem 'rubocop-rspec', '~> 2.25', require: false
 
   # Reportes de pruebas
   gem 'rspec_junit_formatter', '~> 0.6', require: false
