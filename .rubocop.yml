@@ -1,9 +1,12 @@
 # .rubocop.yml
 
-plugins:
-  - rubocop-rails
+require:
+  - rubocop-rspec
   - rubocop-factory_bot
   - rubocop-rake
+
+plugins:
+  - rubocop-rails
 
 AllCops:
   NewCops: enable
