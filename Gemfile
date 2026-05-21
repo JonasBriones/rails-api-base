@@ -24,7 +24,7 @@ group :development, :test do
   # Linters y seguridad
   gem 'brakeman', '~> 6.0', require: false
   gem 'rubocop', '~> 1.56', require: false
-  gem 'rubocop-rails', '~> 2.21', require: false
+  gem 'rubocop-rails', '~> 2.35', require: false
   gem 'rubocop-rspec', '~> 2.25', require: false
 
   # Reportes de pruebas
