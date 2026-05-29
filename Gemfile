@@ -48,3 +48,4 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'redis', '~> 5.0'
+gem "pundit"
