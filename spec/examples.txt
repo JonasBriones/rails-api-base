@@ -1,10 +1,10 @@
 example_id                                        | status | run_time        |
 ------------------------------------------------- | ------ | --------------- |
-./spec/domain/auth/auth_spec.rb[1:1:1:1]          | passed | 0.05604 seconds |
-./spec/domain/health_check/checker_spec.rb[1:1:1] | passed | 0.01556 seconds |
-./spec/domain/health_check/checker_spec.rb[1:2:1] | passed | 0.0482 seconds  |
-./spec/domain/users/create_spec.rb[1:1:1:1]       | passed | 0.02388 seconds |
-./spec/domain/users/destroy_spec.rb[1:1:1]        | passed | 0.04648 seconds |
-./spec/domain/users/index_spec.rb[1:1:1]          | passed | 0.03283 seconds |
-./spec/domain/users/show_spec.rb[1:1:1:1]         | passed | 1.03 seconds    |
-./spec/domain/users/update_spec.rb[1:1:1]         | passed | 0.03042 seconds |
+./spec/domain/auth/auth_spec.rb[1:1:1:1]          | passed | 0.04419 seconds |
+./spec/domain/health_check/checker_spec.rb[1:1:1] | passed | 0.02526 seconds |
+./spec/domain/health_check/checker_spec.rb[1:2:1] | passed | 0.01274 seconds |
+./spec/domain/users/create_spec.rb[1:1:1:1]       | passed | 0.03822 seconds |
+./spec/domain/users/destroy_spec.rb[1:1:1]        | passed | 0.02153 seconds |
+./spec/domain/users/index_spec.rb[1:1:1]          | passed | 0.02605 seconds |
+./spec/domain/users/show_spec.rb[1:1:1:1]         | passed | 0.01911 seconds |
+./spec/domain/users/update_spec.rb[1:1:1]         | passed | 0.69425 seconds |

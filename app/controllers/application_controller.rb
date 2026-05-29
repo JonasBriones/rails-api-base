@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
+  include Pundit::Authorization
+  
   def authorize_request
     header = request.headers['Authorization']
     token = header.split.last if header
@@ -12,4 +14,10 @@ class ApplicationController < ActionController::API
       render json: { errors: [e.message] }, status: :unauthorized
     end
   end
+
+  
+  def current_user
+    @current_user
+  end
+
 end

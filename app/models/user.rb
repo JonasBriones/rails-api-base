@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  enum role: { user: 0, admin: 1 }
+  enum :role, { basic: 0, subscriber: 1, admin: 2 }, default: :basic
 
   validates :fullName, presence: true
 
