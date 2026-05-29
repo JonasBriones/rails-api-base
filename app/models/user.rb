@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  enum role: { user: 0, admin: 1 }
+
   validates :fullName, presence: true
 
   # rubocop:disable Rails/UniqueValidationWithoutIndex
@@ -13,9 +15,10 @@ class User < ApplicationRecord
   validate :date_of_birth_cannot_be_in_the_future
 
   private
+
   def date_of_birth_cannot_be_in_the_future
-    if date_of_birth.present? && date_of_birth > Date.today
-      errors.add(:date_of_birth, "can't be in the future")
-    end
+    return unless date_of_birth.present? && date_of_birth > Time.zone.today
+
+    errors.add(:date_of_birth, "can't be in the future")
   end
 end

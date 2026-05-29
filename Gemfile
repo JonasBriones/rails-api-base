@@ -47,5 +47,5 @@ gem 'jwt', '~> 2.7'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-oauth2'
 gem 'omniauth-rails_csrf_protection'
+gem 'pundit'
 gem 'redis', '~> 5.0'
-gem "pundit"
