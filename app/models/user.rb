@@ -14,6 +14,11 @@ class User < ApplicationRecord
   validates :date_of_birth, presence: true
   validate :date_of_birth_cannot_be_in_the_future
 
+  
+  def admin?
+    role == "admin"
+  end
+  
   private
 
   def date_of_birth_cannot_be_in_the_future
@@ -21,4 +26,5 @@ class User < ApplicationRecord
 
     errors.add(:date_of_birth, "can't be in the future")
   end
+
 end

@@ -4,9 +4,10 @@ module Api
   module V1
     class UsersController < ApplicationController
       before_action :authorize_request, except: :create
-      before_action :set_user, only: %i[show update destroy]
+      before_action :set_user, only: %i[ show update destroy]
 
       def index
+        authorize User
         @users = User.all
         render json: @users, except: [:password_digest], status: :ok
       end
@@ -28,6 +29,7 @@ module Api
       end
 
       def update
+        authorize @user
         if @user.update(update_params)
           render json: @user, except: [:password_digest], status: :ok
         else
@@ -36,6 +38,7 @@ module Api
       end
 
       def destroy
+        authorize @user
         @user.destroy
         head :no_content
       end
