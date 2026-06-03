@@ -43,7 +43,7 @@ group :test do
 end
 
 gem 'bcrypt', '~> 3.1'
-gem 'jwt', '~> 2.7'
+gem 'jwt', '~> 3.2'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-oauth2'
 gem 'omniauth-rails_csrf_protection'
