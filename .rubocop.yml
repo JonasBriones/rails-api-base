@@ -1,12 +1,9 @@
-# .rubocop.yml
-
-plugins: rubocop-rails
+plugins:
+  - rubocop-rails
 
 AllCops:
-  TargetRailsVersion: 7.2
+  TargetRailsVersion: 8.0
+  SuggestExtensions: false
 
 Style/Documentation:
   Enabled: false
-
-Style/StringLiterals:
-  EnforcedStyle: single_quotes

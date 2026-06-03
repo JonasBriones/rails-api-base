@@ -3,22 +3,22 @@
 module HealthCheck
   class Checker
     def self.call
-      checks = {
-        environment: check_environment,
-        # database: check_database,
-        # database_metrics: database_metrics,
-        time: check_time
-      }
-
-      healthy = checks.values.all? { |check| check[:status] == 'OK' }
+      healthy = api_info_payload.values.all? { |check| check[:status] == 'OK' }
 
       {
         healthy: healthy,
         status: healthy ? 'healthy' : 'unhealthy',
-        checks: checks,
+        checks: api_info_payload,
         timestamp: Time.current.iso8601,
         uptime: uptime_seconds,
         system: system_info
+      }
+    end
+
+    def self.api_info_payload
+      {
+        environment: check_environment,
+        time: check_time
       }
     end
 
@@ -59,24 +59,27 @@ module HealthCheck
     end
 
     def self.uptime_seconds
-      # Esto requiere un initializer para tracking de uptime
       Rails.application.config.start_time ||= Time.current
       (Time.current - Rails.application.config.start_time).to_i
     end
 
     def self.system_info
-      {
-        hostname: `hostname`.strip,
-        pid: Process.pid,
-        cpu_count: `nproc`.strip.to_i,
-        memory: get_memory_info
-      }
+      system_info_data
     rescue StandardError
       {
         hostname: 'unknown',
         pid: Process.pid,
         cpu_count: 1,
         memory: 'unknown'
+      }
+    end
+
+    def self.system_info_data
+      {
+        hostname: `hostname`.strip,
+        pid: Process.pid,
+        cpu_count: `nproc`.strip.to_i,
+        memory: get_memory_info
       }
     end
   end

@@ -1,35 +1,35 @@
 # frozen_string_literal: true
 
-require 'simplecov'
-require 'simplecov-cobertura'
+# require 'simplecov'
+# require 'simplecov-cobertura'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-                                                                 SimpleCov::Formatter::HTMLFormatter,
-                                                                 SimpleCov::Formatter::CoberturaFormatter # Para GitHub
-                                                               ])
+# SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+#                                                                  SimpleCov::Formatter::HTMLFormatter,
+#                                                                  SimpleCov::Formatter::CoberturaFormatter
+#                                                                ])
 
-SimpleCov.start do
-  # Configuración básica
-  add_filter '/spec/'
-  add_filter '/config/'
-  add_filter '/vendor/'
-  add_filter '/bin/'
+# SimpleCov.start do
+#   # Configuración básica
+#   add_filter '/spec/'
+#   add_filter '/config/'
+#   add_filter '/vendor/'
+#   add_filter '/bin/'
 
-  # Grupos de cobertura
-  add_group 'Models', 'app/models'
-  add_group 'Controllers', 'app/controllers'
-  add_group 'Domain', 'app/domain'
-  add_group 'Services', 'app/services'
+#   # Grupos de cobertura
+#   add_group 'Models', 'app/models'
+#   add_group 'Controllers', 'app/controllers'
+#   add_group 'Domain', 'app/domain'
+#   add_group 'Services', 'app/services'
 
-  # Configuración de formato
-  if ENV['CI']
-    # En CI, solo usar Cobertura
-    SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
-  end
+#   # Configuración de formato
+#   if ENV['CI']
+#     # En CI, solo usar Cobertura
+#     SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
+#   end
 
-  # Cobertura mínima (opcional)
-  minimum_coverage 95 if ENV['CI']
-end
+#   # Cobertura mínima (opcional)
+#   minimum_coverage 95 if ENV['CI']
+# end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JsonWebToken
   # Usamos la clave secreta de Rails para firmar los tokens
   SECRET_KEY = Rails.application.credentials.secret_key_base.to_s
@@ -9,6 +11,6 @@ class JsonWebToken
 
   def self.decode(token)
     decoded = JWT.decode(token, SECRET_KEY)[0]
-    HashWithIndifferentAccess.new(decoded)
+    ActiveSupport::HashWithIndifferentAccess.new(decoded)
   end
 end

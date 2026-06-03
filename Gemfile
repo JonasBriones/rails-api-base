@@ -23,9 +23,10 @@ group :development, :test do
 
   # Linters y seguridad
   gem 'brakeman', '~> 6.0', require: false
-  gem 'rubocop', '~> 1.56', require: false
-  gem 'rubocop-rails', '~> 2.21', require: false
-  gem 'rubocop-rspec', '~> 2.25', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 
   # Reportes de pruebas
   gem 'rspec_junit_formatter', '~> 0.6', require: false
@@ -43,7 +44,8 @@ end
 
 gem 'bcrypt', '~> 3.1'
 gem 'jwt', '~> 2.7'
-gem 'omniauth-oauth2'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-oauth2'
 gem 'omniauth-rails_csrf_protection'
+gem 'pundit'
 gem 'redis', '~> 5.0'
