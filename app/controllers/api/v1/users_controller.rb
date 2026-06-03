@@ -20,7 +20,7 @@ module Api
       def create
         @user = User.new(user_params)
         authorize @user
-        
+
         if @user.save
           render json: @user, except: [:password_digest], status: :created
         else
@@ -44,7 +44,7 @@ module Api
       end
 
       private
-      
+
       def user_params
         params.require(:user).permit(:fullName, :email, :dni, :date_of_birth, :password, :password_confirmation)
       end
@@ -58,7 +58,6 @@ module Api
       rescue ActiveRecord::RecordNotFound
         render json: { error: 'User not found' }, status: :not_found
       end
-
     end
   end
 end

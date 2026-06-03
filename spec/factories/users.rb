@@ -17,6 +17,5 @@ FactoryBot.define do
     trait :admin do
       role { :admin }
     end
-    
   end
 end

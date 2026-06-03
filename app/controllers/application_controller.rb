@@ -2,7 +2,7 @@
 
 class ApplicationController < ActionController::API
   include Pundit::Authorization
-  
+
   def authorize_request
     header = request.headers['Authorization']
     token = header.split.last if header
@@ -15,9 +15,5 @@ class ApplicationController < ActionController::API
     end
   end
 
-  
-  def current_user
-    @current_user
-  end
-
+  attr_reader :current_user
 end
