@@ -19,7 +19,7 @@ group :development, :test do
   gem 'database_cleaner-active_record', '~> 2.1'
   gem 'factory_bot_rails', '~> 6.4'
   gem 'faker', '~> 3.2'
-  gem 'rspec-rails', '~> 6.1'
+  gem 'rspec-rails', '~> 8.0'
 
   # Linters y seguridad
   gem 'brakeman', '~> 6.0', require: false
