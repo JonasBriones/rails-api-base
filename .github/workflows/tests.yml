@@ -5,9 +5,12 @@ on:
     branches:
         - develop
         - 'feature/**'
+  pull_request:
+    branches:
+        - develop
 
 jobs:
-  test:
+  test_and_lint:
     name: Run RSpec and Linters
     runs-on: ubuntu-latest
     env:
