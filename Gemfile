@@ -15,6 +15,10 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
 
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   gem 'database_cleaner-active_record', '~> 2.1'
   gem 'factory_bot_rails', '~> 6.4'
@@ -49,3 +53,4 @@ gem 'omniauth-oauth2'
 gem 'omniauth-rails_csrf_protection'
 gem 'pundit'
 gem 'redis', '~> 5.0'
+gem 'pg'
