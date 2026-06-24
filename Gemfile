@@ -36,7 +36,7 @@ group :development, :test do
   gem 'rspec_junit_formatter', '~> 0.6', require: false
 
   # Configuración de entorno
-  gem 'dotenv-rails', '~> 2.8'
+  gem 'dotenv-rails', '~> 3.2'
 end
 
 group :test do
