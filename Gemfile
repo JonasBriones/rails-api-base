@@ -43,7 +43,7 @@ group :test do
   gem 'json_spec', '~> 1.1'
   gem 'shoulda-matchers', '~> 6.0'
   gem 'simplecov', '~> 0.22', require: false
-  gem 'simplecov-cobertura', '~> 2.1', require: false
+  gem 'simplecov-cobertura', '~> 3.1', require: false
 end
 
 gem 'bcrypt', '~> 3.1'
